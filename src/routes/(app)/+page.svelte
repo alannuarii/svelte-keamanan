@@ -1,7 +1,6 @@
 <script>
 	import Menu from '../../lib/components/Menu.svelte';
 	import Timer from '../../lib/components/Timer.svelte';
-	import Bottom from '../../lib/components/Bottom.svelte';
 	import Personil from '../../lib/components/Personil.svelte';
 	import Times from '../../lib/components/Times.svelte';
 	import Info from '../../lib/components/Info.svelte';
@@ -16,7 +15,7 @@
 		lockPresensi = true;
 	}
 
-	const menuRow1 = [
+	const menus = [
 		{
 			path: '/patroli',
 			icon: 'fi fi-rr-refresh',
@@ -30,16 +29,16 @@
 			lock: false
 		},
 		{
-			path: '/presensi',
-			icon: 'fi fi-rr-face-viewfinder',
-			name: 'Presensi',
-			lock: lockPresensi
-		},
-		{
 			path: '/tamu',
 			icon: 'fi fi-rr-person-simple',
 			name: 'Tamu',
 			lock: false
+		},
+		{
+			path: '/presensi',
+			icon: 'fi fi-rr-face-viewfinder',
+			name: 'Presensi',
+			lock: lockPresensi
 		}
 	];
 </script>
@@ -61,9 +60,9 @@
 			<Info nama={info.nama} waktu={info.waktu} />
 		</div>
 	{/if}
-	<div class="py-5 text-center">
-		<div class="d-flex justify-content-evenly">
-			{#each menuRow1 as menu}
+	<nav class="navbar fixed-bottom shadow">
+		<div class="container-fluid">
+			{#each menus as menu}
 				<Menu
 					path={menu.path}
 					icon={menu.icon}
@@ -74,8 +73,13 @@
 				/>
 			{/each}
 		</div>
-	</div>
-	<div>
-		<Bottom />
-	</div>
+	</nav>
 </section>
+
+<style>
+	nav {
+		height: 100px;
+		border-radius: 30px 30px 0 0;
+		background-color: #2b2d42;
+	}
+</style>

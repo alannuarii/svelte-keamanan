@@ -9,10 +9,10 @@
 </svelte:head>
 
 <main id="mobile" class="d-sm-none overflow-x-hidden">
-	<div>
+	<div class="fixed-top">
 		<Header />
 	</div>
-	<div class="my-3">
+	<div class="my-3 content">
 		<slot />
 	</div>
 </main>
@@ -25,5 +25,8 @@
 	#desktop h1 {
 		font-size: 3vw;
 		font-weight: 300;
+	}
+	.content {
+		padding-top: 70px;
 	}
 </style>

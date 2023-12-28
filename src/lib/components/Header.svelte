@@ -20,7 +20,7 @@
 	<div class="container-fluid">
 		{#if path === '/'}
 			<p class="text-center ms-auto">Security App</p>
-			<div class="ms-auto"><DropdownHeader /></div>
+			<div class="ms-auto me-1"><DropdownHeader /></div>
 		{:else if backPath !== ''}
 			<a class="navbar-brand" href={backPath}><i class="fi fi-rr-angle-left" /></a>
 			<p class="text-center ms-auto">Security App</p>

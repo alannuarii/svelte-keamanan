@@ -40,7 +40,7 @@
 	});
 </script>
 
-<section class="p-3">
+<section class="px-3">
 	<TitleDate title={'jadwal piket'} on:tanggal={handleEvent} />
 	<div class="border p-3 text-center mb-2 shadow-sm">
 		<h5><i class="fi fi-rr-moon-stars me-1" /> Piket Malam</h5>
