@@ -4,11 +4,13 @@
 	import Personil from '../../lib/components/Personil.svelte';
 	import Times from '../../lib/components/Times.svelte';
 	import Info from '../../lib/components/Info.svelte';
+	import ModalNotif from '../../lib/components/ModalNotif.svelte';
 	import { getPiket } from '../../lib/js/jadwal';
 
 	export let data;
 	const info = data.data1 !== null && data.data1.data.length > 0 ? data.data1.data[0] : null;
 	const piket = data.data2 !== null && data.data2.data.length > 0 ? data.data2.data : [];
+
 	let lockPresensi = false;
 
 	if (piket.length >= getPiket().length) {
@@ -63,17 +65,21 @@
 	<nav class="navbar fixed-bottom shadow">
 		<div class="container-fluid">
 			{#each menus as menu}
-				<Menu
-					path={menu.path}
-					icon={menu.icon}
-					name={menu.name}
-					lock={menu.lock}
-					id={menu.name}
-					pernyataan={'Anda tidak diperbolehkan'}
-				/>
+				{#if menu.lock}
+					<div class="btn" data-bs-toggle="modal" data-bs-target="#disablePresensi">
+						<i class={menu.icon} />
+						<p>{menu.name}</p>
+					</div>
+				{:else}
+					<div class="btn">
+						<a href={menu.path}><i class={menu.icon} /></a>
+						<p>{menu.name}</p>
+					</div>
+				{/if}
 			{/each}
 		</div>
 	</nav>
+	<ModalNotif id={'disablePresensi'} pernyataan={'Anda tidak diperbolehkan'} />
 </section>
 
 <style>
@@ -81,5 +87,26 @@
 		height: 100px;
 		border-radius: 30px 30px 0 0;
 		background-color: #2b2d42;
+	}
+	p {
+		margin: 0;
+		font-size: 3vw;
+		font-weight: 300;
+		color: #ffffff;
+	}
+	a {
+		text-decoration: none;
+	}
+	.btn {
+		border: none;
+		width: 20%;
+	}
+
+	i {
+		padding: 0px 15px;
+		/* border-radius: 50%; */
+		font-size: 25px;
+		/* background-color: #ffd59d; */
+		color: #2ec4b6;
 	}
 </style>

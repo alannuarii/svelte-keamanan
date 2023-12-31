@@ -31,9 +31,9 @@
 			videoEl.srcObject = null;
 		}
 
-		setTimeout(() => {
-			location.reload();
-		}, 1000);
+		// setTimeout(() => {
+		// 	location.reload();
+		// }, 1000);
 	}
 
 	function getLabeledFaceDescriptions() {
