@@ -13,7 +13,7 @@ export const load = async () => {
 			fetch(`${API_ENDPOINT}/get/presensi/get-piket/${piket}_${now}`).then((res) => res.json())
 		]);
 
-		return { data1: res1, data2: res2, data3: { piket, datetime, res2 } };
+		return { data1: res1, data2: res2, data3: { piket, datetime} };
 	} catch (error) {
 		console.error('Terjadi kesalahan', error);
 		return { data1: null, data2: null };

@@ -11,8 +11,6 @@
 	const piket = data.data2 !== null && data.data2.data.length > 0 ? data.data2.data : [];
 	const check = data.data3;
 
-	console.log(check);
-
 	let lockPresensi = false;
 
 	if (piket.length >= getPiket().length) {
@@ -58,6 +56,9 @@
 		<div class="col-3 d-flex align-items-center">
 			<Times />
 		</div>
+		<h4>{check.piket}</h4>
+		<h4>{check.datetime}</h4>
+		<h4>{piket[0].nama}</h4>
 	</div>
 	{#if info !== null}
 		<div class="mx-3 py-2">
