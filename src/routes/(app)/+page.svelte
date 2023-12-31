@@ -1,5 +1,4 @@
 <script>
-	import Menu from '../../lib/components/Menu.svelte';
 	import Timer from '../../lib/components/Timer.svelte';
 	import Personil from '../../lib/components/Personil.svelte';
 	import Times from '../../lib/components/Times.svelte';
@@ -10,6 +9,9 @@
 	export let data;
 	const info = data.data1 !== null && data.data1.data.length > 0 ? data.data1.data[0] : null;
 	const piket = data.data2 !== null && data.data2.data.length > 0 ? data.data2.data : [];
+	const check = data.data3;
+
+	console.log(check);
 
 	let lockPresensi = false;
 
