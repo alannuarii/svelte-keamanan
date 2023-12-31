@@ -1,4 +1,5 @@
 <script>
+	import Menu from '../../lib/components/Menu.svelte';
 	import Timer from '../../lib/components/Timer.svelte';
 	import Personil from '../../lib/components/Personil.svelte';
 	import Times from '../../lib/components/Times.svelte';
@@ -9,7 +10,6 @@
 	export let data;
 	const info = data.data1 !== null && data.data1.data.length > 0 ? data.data1.data[0] : null;
 	const piket = data.data2 !== null && data.data2.data.length > 0 ? data.data2.data : [];
-	const check = data.data3;
 
 	let lockPresensi = false;
 
@@ -56,9 +56,6 @@
 		<div class="col-3 d-flex align-items-center">
 			<Times />
 		</div>
-		<h4>{check.piket}</h4>
-		<h4>{check.datetime}</h4>
-		<h4>{piket[0].nama}</h4>
 	</div>
 	{#if info !== null}
 		<div class="mx-3 py-2">
