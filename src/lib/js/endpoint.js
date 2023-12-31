@@ -1,1 +1,0 @@
-export const API_ENDPOINT = 'http://192.168.88.251:3210'

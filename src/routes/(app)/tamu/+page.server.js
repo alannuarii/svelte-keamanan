@@ -1,4 +1,4 @@
-import { API_ENDPOINT } from '../../../lib/js/endpoint';
+import { API_ENDPOINT } from '$env/static/private';
 
 export const actions = {
 	default: async ({ request }) => {

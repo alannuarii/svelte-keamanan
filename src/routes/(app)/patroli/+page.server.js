@@ -1,4 +1,4 @@
-import { API_ENDPOINT } from '../../../lib/js/endpoint';
+import { API_ENDPOINT } from '$env/static/private';
 import { rentangWaktu } from '../../../lib/js/jadwal';
 import { getDatetime } from '../../../lib/js/date';
 import { redirect } from '@sveltejs/kit';
