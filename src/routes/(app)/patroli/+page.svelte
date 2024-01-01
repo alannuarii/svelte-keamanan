@@ -33,6 +33,10 @@
 		}
 	};
 
+	const removeLocalStorage = () => {
+		localStorage.removeItem('namaShift');
+	};
+
 	onMount(() => {
 		const storedNamaShift = localStorage.getItem('namaShift');
 		namaShift = storedNamaShift;
@@ -125,8 +129,11 @@
 			</div>
 			<div class="d-flex justify-content-center">
 				<input type="hidden" name="waktu" value={getDatetime()} />
-				<button type="submit" class="btn submit" disabled={persen === 100 ? false : true}
-					>Kirim</button
+				<button
+					type="submit"
+					class="btn submit"
+					disabled={persen === 100 ? false : true}
+					on:click={removeLocalStorage}>Kirim</button
 				>
 			</div>
 		</form>

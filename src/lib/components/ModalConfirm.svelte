@@ -3,6 +3,7 @@
 
 	const removeLocalStorage = () => {
 		localStorage.removeItem('namaShift');
+		window.location.reload()
 	};
 </script>
 

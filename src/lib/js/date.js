@@ -71,7 +71,7 @@ export const convertDatetime = (datetime) => {
 	const tanggal = new Date(datetime);
 
 	// Tambahkan 8 jam ke tanggal
-	tanggal.setTime(tanggal.getTime() + 8 * 60 * 60 * 1000);
+	tanggal.setTime(tanggal.getTime());
 
 	const jam = tanggal.getUTCHours();
 	const menit = tanggal.getUTCMinutes();
