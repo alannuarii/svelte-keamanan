@@ -12,7 +12,7 @@
 	}
 
 	function refresh() {
-		window.location.reload();
+		window.location.reload(true);
 	}
 </script>
 
