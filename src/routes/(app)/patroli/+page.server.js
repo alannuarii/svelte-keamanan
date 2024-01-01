@@ -1,11 +1,11 @@
-import { API_ENDPOINT } from '$env/static/private';
-import { rentangWaktu } from '../../../lib/js/jadwal';
-import { getDatetime } from '../../../lib/js/date';
+import { API_ENDPOINT, TIME } from '$env/static/private';
+import { rentangWaktuServer } from '../../../lib/js/jadwal';
+import { getDatetimeServer } from '../../../lib/js/date';
 import { redirect } from '@sveltejs/kit';
 
 export const load = async ({ cookies }) => {
-	const piket = rentangWaktu();
-	const datetime = getDatetime()
+	const piket = rentangWaktuServer(parseInt(TIME));
+	const datetime = getDatetimeServer(parseInt(TIME))
 	const now = datetime.slice(0, 10);
 	try {
 		const res2 = await fetch(`${API_ENDPOINT}/get/presensi/get-piket/${piket}_${now}`);
