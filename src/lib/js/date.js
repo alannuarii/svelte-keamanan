@@ -53,9 +53,9 @@ export const getDatetime = () => {
 	// Contoh keluaran: "2023-09-03 10:21:39"
 };
 
-export const getDatetimeServer = () => {
+export const getDatetimeServer = (time) => {
 	let sekarang = new Date();
-	sekarang.setHours(sekarang.getHours() + 8);
+	sekarang.setHours(sekarang.getHours() + time);
 	const year = sekarang.getFullYear();
 	const month = String(sekarang.getMonth() + 1).padStart(2, '0');
 	const day = String(sekarang.getDate()).padStart(2, '0');

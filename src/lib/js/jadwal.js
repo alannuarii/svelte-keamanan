@@ -58,9 +58,9 @@ export const rentangWaktu = () => {
 	}
 };
 
-export const rentangWaktuServer = () => {
+export const rentangWaktuServer = (time) => {
 	let sekarang = new Date();
-	sekarang.setHours(sekarang.getHours() + 8);
+	sekarang.setHours(sekarang.getHours() + time);
 	const jam = sekarang.getHours();
 
 	if (jam >= 0 && jam < 8) {

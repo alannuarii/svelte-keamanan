@@ -1,14 +1,14 @@
-import { API_ENDPOINT } from '$env/static/private';
-import { rentangWaktu } from '../../lib/js/jadwal';
-import { getDatetime } from '../../lib/js/date';
+import { API_ENDPOINT, TIME } from '$env/static/private';
+import { rentangWaktuServer, rentangWaktu } from '../../lib/js/jadwal';
+import { getDatetimeServer } from '../../lib/js/date';
 
 export const load = async () => {
-	const piket = rentangWaktu();
-	const datetime = getDatetime()
+	const piket = rentangWaktuServer(parseInt(TIME));
+	const datetime = getDatetimeServer(parseInt(TIME))
 	const now = datetime.slice(0, 10);
-
 	console.log(piket)
 	console.log(datetime)
+	console.log(rentangWaktu())
 	try {
 		const [res1, res2] = await Promise.all([
 			fetch(`${API_ENDPOINT}/get/patroli/get-note-patroli`).then((res) => res.json()),

@@ -13,9 +13,12 @@
 
 	let lockPresensi = false;
 
-	if (piket.length >= getPiket().length) {
+	if (piket.length > getPiket().length) {
 		lockPresensi = true;
 	}
+
+	console.log(piket)
+	console.log(lockPresensi)
 
 	const menus = [
 		{
