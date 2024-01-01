@@ -1,6 +1,5 @@
 <script>
 	import Title from '$lib/components/Title.svelte';
-	import namaPiket from '$lib/js/store';
 	import { onMount } from 'svelte';
 	import { locations } from '$lib/js/locations';
 	import { getDatetime } from '$lib/js/date';
@@ -12,6 +11,7 @@
 	let nama = data.data.length > 0 ? data.data[0].nama : '';
 	let namesCheckIn = data.data2.data.length > 0 ? data.data2.data : [];
 	let kondisi = false;
+	let namaShift;
 	$: persen = (totalLokasi.length / locations.length) * 100;
 
 	lokasi.forEach((e) => {
@@ -22,20 +22,20 @@
 
 	let names = namesCheckIn.map((e) => e.nama);
 
-	$: pilih = $namaPiket === null ? false : true;
+	$: pilih = namaShift !== null;
 
 	const handleSelect = (event) => {
-		if (event.target.value !== 'Pilih nama petugas') {
-			if ($namaPiket === null) {
-				namaPiket.set(event.target.value);
-			}
+		const selectedValue = event.target.value;
+
+		if (selectedValue !== 'Pilih nama petugas') {
+			namaShift = selectedValue;
+			localStorage.setItem('namaShift', selectedValue);
 		}
 	};
 
 	onMount(() => {
-		if ($namaPiket === null && nama) {
-			namaPiket.set(nama);
-		}
+		const storedNamaShift = localStorage.getItem('namaShift');
+		namaShift = storedNamaShift;
 	});
 </script>
 
@@ -47,8 +47,8 @@
 				<label for="inputEmail3" class="col-3 col-form-label">Petugas</label>
 				<div class="col-9">
 					<select class="form-select" aria-label="Default select example" on:change={handleSelect}>
-						{#if $namaPiket !== null}
-							<option selected disabled>{$namaPiket}</option>
+						{#if namaShift !== null}
+							<option selected disabled>{namaShift}</option>
 						{:else}
 							<option selected disabled>Pilih nama petugas</option>
 							{#each names as name}

@@ -1,9 +1,8 @@
 <script>
-	import namaPiket from '../../lib/js/store';
 	export let id;
 
-	const removeNamaPiket = () => {
-		namaPiket.set(null);
+	const removeLocalStorage = () => {
+		localStorage.removeItem('namaShift');
 	};
 </script>
 
@@ -12,7 +11,7 @@
 		<div class="modal-content">
 			<div class="modal-body text-center py-4">Anda yakin menghapus semua progres patroli?</div>
 			<div class="modal-footer d-flex justify-content-center">
-				<a href="/patroli/reset" class="btn" data-bs-dismiss="modal" on:click={removeNamaPiket}
+				<a href="/patroli/reset" class="btn" data-bs-dismiss="modal" on:click={removeLocalStorage}
 					>OK!</a
 				>
 			</div>

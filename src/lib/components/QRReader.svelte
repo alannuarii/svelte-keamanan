@@ -1,13 +1,13 @@
 <script>
 	import { onMount, onDestroy, afterUpdate } from 'svelte';
 	import jsQR from 'jsqr';
-	import namaPiket from '../js/store';
 	import { locations } from '../js/locations';
 
 	let mediaStream;
 	let videoEl;
 	let canvasEl;
 	let isCanvasOn = false;
+	let namaPiket;
 
 	async function getRearCamera() {
 		try {
@@ -45,7 +45,7 @@
 				const code = jsQR(imageData.data, imageData.width, imageData.height);
 				if (code) {
 					if (parseInt(code.data) < locations.length) {
-						window.location.href = `/patroli/${code.data}${$namaPiket.replace(/\s+/g, '')}`;
+						window.location.href = `/patroli/${code.data}${namaPiket.replace(/\s+/g, '')}`;
 					}
 				}
 			}
@@ -69,6 +69,8 @@
 	}
 
 	onMount(() => {
+		const storedNamaShift = localStorage.getItem('namaShift');
+		namaPiket = storedNamaShift
 		getRearCamera();
 	});
 
