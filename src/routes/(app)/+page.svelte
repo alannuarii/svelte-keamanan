@@ -10,15 +10,13 @@
 	export let data;
 	const info = data.data1 !== null && data.data1.data.length > 0 ? data.data1.data[0] : null;
 	const piket = data.data2 !== null && data.data2.data.length > 0 ? data.data2.data : [];
+	const waktuPiket = data.data3;
 
 	let lockPresensi = false;
 
 	if (piket.length > getPiket().length) {
 		lockPresensi = true;
 	}
-
-	console.log(piket)
-	console.log(lockPresensi)
 
 	const menus = [
 		{
@@ -57,7 +55,7 @@
 			<Personil names={piket} />
 		</div>
 		<div class="col-3 d-flex align-items-center">
-			<Times />
+			<Times piket={waktuPiket} />
 		</div>
 	</div>
 	{#if info !== null}

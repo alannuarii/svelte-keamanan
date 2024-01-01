@@ -2,13 +2,14 @@
 	import pagi from '../img/pagi.png';
 	import sore from '../img/sore.png';
 	import malam from '../img/malam.png';
-	import { rentangWaktu } from '../js/jadwal';
+
+	export let piket;
 
 	let waktu;
 
-	if (rentangWaktu() === 'm') {
+	if (piket === 'm') {
 		waktu = malam;
-	} else if (rentangWaktu() === 'p') {
+	} else if (piket === 'p') {
 		waktu = pagi;
 	} else {
 		waktu = sore;
