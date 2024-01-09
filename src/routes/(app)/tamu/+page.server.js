@@ -8,7 +8,7 @@ export const actions = {
 		formData.append('foto', data.get('foto'));
 		formData.append('nama', data.get('nama'));
 		formData.append('instansi', data.get('instansi'));
-		formData.append('nphp', data.get('nphp'));
+		formData.append('nohp', data.get('nohp'));
 		formData.append('tujuan', data.get('tujuan'));
 
 		const parsedData = {};
